@@ -4939,3 +4939,995 @@ con
 ----------------End of Script----------------
 
 14:07:54 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+14:20:33 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+14:20:41 INFO  : Disconnected from the channel tcfchan#36.
+14:20:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:20:42 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+14:20:42 INFO  : 'jtag frequency' command is executed.
+14:20:42 INFO  : Context for 'APU' is selected.
+14:20:42 INFO  : System reset is completed.
+14:20:45 INFO  : 'after 3000' command is executed.
+14:20:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+14:20:46 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+14:20:46 INFO  : Context for 'APU' is selected.
+14:20:48 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+14:20:48 INFO  : 'configparams force-mem-access 1' command is executed.
+14:20:48 INFO  : Context for 'APU' is selected.
+14:20:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:20:48 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:20:48 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:20:48 INFO  : 'set bp_20_48_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+14:20:49 INFO  : 'con -block -timeout 60' command is executed.
+14:20:49 INFO  : 'bpremove $bp_20_48_fsbl_bp' command is executed.
+14:20:49 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+14:20:49 INFO  : Context for processor 'microblaze_0' is selected.
+14:20:50 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+14:20:50 INFO  : 'configparams force-mem-access 0' command is executed.
+14:20:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_20_48_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_20_48_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:20:50 INFO  : Context for processor 'microblaze_0' is selected.
+14:20:50 INFO  : 'con' command is executed.
+14:20:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+14:20:50 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+14:30:19 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+14:30:22 INFO  : Disconnected from the channel tcfchan#37.
+14:30:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:30:23 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+14:30:24 INFO  : 'jtag frequency' command is executed.
+14:30:24 INFO  : Context for 'APU' is selected.
+14:30:24 INFO  : System reset is completed.
+14:30:27 INFO  : 'after 3000' command is executed.
+14:30:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+14:30:28 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+14:30:28 INFO  : Context for 'APU' is selected.
+14:30:29 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+14:30:29 INFO  : 'configparams force-mem-access 1' command is executed.
+14:30:29 INFO  : Context for 'APU' is selected.
+14:30:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:29 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:30:30 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:30:30 INFO  : 'set bp_30_30_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+14:30:31 INFO  : 'con -block -timeout 60' command is executed.
+14:30:31 INFO  : 'bpremove $bp_30_30_fsbl_bp' command is executed.
+14:30:31 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+14:30:31 INFO  : Context for processor 'microblaze_0' is selected.
+14:30:31 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+14:30:31 INFO  : 'configparams force-mem-access 0' command is executed.
+14:30:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_30_30_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_30_30_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:30:31 INFO  : Context for processor 'microblaze_0' is selected.
+14:30:31 INFO  : 'con' command is executed.
+14:30:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+14:30:31 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+14:45:19 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+14:45:22 INFO  : Disconnected from the channel tcfchan#38.
+14:45:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:45:24 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+14:45:24 INFO  : 'jtag frequency' command is executed.
+14:45:24 INFO  : Context for 'APU' is selected.
+14:45:24 INFO  : System reset is completed.
+14:45:27 INFO  : 'after 3000' command is executed.
+14:45:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+14:45:28 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+14:45:28 INFO  : Context for 'APU' is selected.
+14:45:29 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+14:45:29 INFO  : 'configparams force-mem-access 1' command is executed.
+14:45:29 INFO  : Context for 'APU' is selected.
+14:45:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:45:29 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:45:30 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:45:30 INFO  : 'set bp_45_30_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+14:45:31 INFO  : 'con -block -timeout 60' command is executed.
+14:45:31 INFO  : 'bpremove $bp_45_30_fsbl_bp' command is executed.
+14:45:31 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+14:45:31 INFO  : Context for processor 'microblaze_0' is selected.
+14:45:32 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+14:45:32 INFO  : 'configparams force-mem-access 0' command is executed.
+14:45:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_45_30_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_45_30_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:45:32 INFO  : Context for processor 'microblaze_0' is selected.
+14:45:32 INFO  : 'con' command is executed.
+14:45:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+14:45:32 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+14:53:58 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+14:54:36 INFO  : Disconnected from the channel tcfchan#39.
+14:54:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:54:38 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+14:54:38 INFO  : 'jtag frequency' command is executed.
+14:54:38 INFO  : Context for 'APU' is selected.
+14:54:38 INFO  : System reset is completed.
+14:54:41 INFO  : 'after 3000' command is executed.
+14:54:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+14:54:42 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+14:54:42 INFO  : Context for 'APU' is selected.
+14:54:44 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+14:54:44 INFO  : 'configparams force-mem-access 1' command is executed.
+14:54:44 INFO  : Context for 'APU' is selected.
+14:54:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:54:44 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:54:44 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:54:44 INFO  : 'set bp_54_44_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+14:54:45 INFO  : 'con -block -timeout 60' command is executed.
+14:54:45 INFO  : 'bpremove $bp_54_44_fsbl_bp' command is executed.
+14:54:45 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+14:54:45 INFO  : Context for processor 'microblaze_0' is selected.
+14:54:46 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+14:54:46 INFO  : 'configparams force-mem-access 0' command is executed.
+14:54:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_54_44_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_54_44_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:54:46 INFO  : Context for processor 'microblaze_0' is selected.
+14:54:46 INFO  : 'con' command is executed.
+14:54:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+14:54:46 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:09:03 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:09:10 INFO  : Disconnected from the channel tcfchan#40.
+15:09:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:09:11 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:09:11 INFO  : 'jtag frequency' command is executed.
+15:09:11 INFO  : Context for 'APU' is selected.
+15:09:11 INFO  : System reset is completed.
+15:09:14 INFO  : 'after 3000' command is executed.
+15:09:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:09:15 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:09:15 INFO  : Context for 'APU' is selected.
+15:09:17 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:09:17 INFO  : 'configparams force-mem-access 1' command is executed.
+15:09:17 INFO  : Context for 'APU' is selected.
+15:09:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:09:17 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:09:17 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:09:17 INFO  : 'set bp_9_17_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:09:18 INFO  : 'con -block -timeout 60' command is executed.
+15:09:18 INFO  : 'bpremove $bp_9_17_fsbl_bp' command is executed.
+15:09:18 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:09:18 INFO  : Context for processor 'microblaze_0' is selected.
+15:09:19 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:09:19 INFO  : 'configparams force-mem-access 0' command is executed.
+15:09:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_9_17_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_9_17_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:09:19 INFO  : Context for processor 'microblaze_0' is selected.
+15:09:19 INFO  : 'con' command is executed.
+15:09:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:09:19 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:16:56 INFO  : Disconnected from the channel tcfchan#41.
+15:16:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:16:57 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:16:57 INFO  : 'jtag frequency' command is executed.
+15:16:57 INFO  : Context for 'APU' is selected.
+15:16:57 INFO  : System reset is completed.
+15:17:00 INFO  : 'after 3000' command is executed.
+15:17:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:17:02 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:17:02 INFO  : Context for 'APU' is selected.
+15:17:03 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:17:03 INFO  : 'configparams force-mem-access 1' command is executed.
+15:17:03 INFO  : Context for 'APU' is selected.
+15:17:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:17:03 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:17:03 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:17:03 INFO  : 'set bp_17_3_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:17:04 INFO  : 'con -block -timeout 60' command is executed.
+15:17:04 INFO  : 'bpremove $bp_17_3_fsbl_bp' command is executed.
+15:17:05 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:17:05 INFO  : Context for processor 'microblaze_0' is selected.
+15:17:05 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:17:05 INFO  : 'configparams force-mem-access 0' command is executed.
+15:17:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_17_3_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_17_3_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:17:05 INFO  : Context for processor 'microblaze_0' is selected.
+15:17:05 INFO  : 'con' command is executed.
+15:17:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:17:05 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:18:41 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:18:44 INFO  : Disconnected from the channel tcfchan#42.
+15:18:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:18:45 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:18:45 INFO  : 'jtag frequency' command is executed.
+15:18:45 INFO  : Context for 'APU' is selected.
+15:18:45 INFO  : System reset is completed.
+15:18:48 INFO  : 'after 3000' command is executed.
+15:18:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:18:49 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:18:49 INFO  : Context for 'APU' is selected.
+15:18:51 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:18:51 INFO  : 'configparams force-mem-access 1' command is executed.
+15:18:51 INFO  : Context for 'APU' is selected.
+15:18:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:18:51 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:18:51 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:18:51 INFO  : 'set bp_18_51_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:18:52 INFO  : 'con -block -timeout 60' command is executed.
+15:18:52 INFO  : 'bpremove $bp_18_51_fsbl_bp' command is executed.
+15:18:52 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:18:52 INFO  : Context for processor 'microblaze_0' is selected.
+15:18:53 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:18:53 INFO  : 'configparams force-mem-access 0' command is executed.
+15:18:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_18_51_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_18_51_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:18:53 INFO  : Context for processor 'microblaze_0' is selected.
+15:18:53 INFO  : 'con' command is executed.
+15:18:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:18:53 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:19:19 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:19:24 INFO  : Disconnected from the channel tcfchan#43.
+15:19:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:19:25 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:19:25 INFO  : 'jtag frequency' command is executed.
+15:19:25 INFO  : Context for 'APU' is selected.
+15:19:25 INFO  : System reset is completed.
+15:19:28 INFO  : 'after 3000' command is executed.
+15:19:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:19:30 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:19:30 INFO  : Context for 'APU' is selected.
+15:19:31 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:19:31 INFO  : 'configparams force-mem-access 1' command is executed.
+15:19:31 INFO  : Context for 'APU' is selected.
+15:19:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:19:31 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:19:31 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:19:31 INFO  : 'set bp_19_31_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:19:32 INFO  : 'con -block -timeout 60' command is executed.
+15:19:32 INFO  : 'bpremove $bp_19_31_fsbl_bp' command is executed.
+15:19:32 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:19:32 INFO  : Context for processor 'microblaze_0' is selected.
+15:19:33 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:19:33 INFO  : 'configparams force-mem-access 0' command is executed.
+15:19:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_19_31_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_19_31_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:19:33 INFO  : Context for processor 'microblaze_0' is selected.
+15:19:33 INFO  : 'con' command is executed.
+15:19:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:19:33 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:21:04 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:21:08 INFO  : Disconnected from the channel tcfchan#44.
+15:21:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:21:09 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:21:09 INFO  : 'jtag frequency' command is executed.
+15:21:09 INFO  : Context for 'APU' is selected.
+15:21:09 INFO  : System reset is completed.
+15:21:12 INFO  : 'after 3000' command is executed.
+15:21:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:21:14 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:21:14 INFO  : Context for 'APU' is selected.
+15:21:15 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:21:15 INFO  : 'configparams force-mem-access 1' command is executed.
+15:21:15 INFO  : Context for 'APU' is selected.
+15:21:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:21:15 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:21:15 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:21:15 INFO  : 'set bp_21_15_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:21:16 INFO  : 'con -block -timeout 60' command is executed.
+15:21:16 INFO  : 'bpremove $bp_21_15_fsbl_bp' command is executed.
+15:21:16 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:21:16 INFO  : Context for processor 'microblaze_0' is selected.
+15:21:17 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:21:17 INFO  : 'configparams force-mem-access 0' command is executed.
+15:21:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_21_15_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_21_15_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:21:17 INFO  : Context for processor 'microblaze_0' is selected.
+15:21:17 INFO  : 'con' command is executed.
+15:21:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:21:17 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:21:49 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:22:03 INFO  : Disconnected from the channel tcfchan#45.
+15:22:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:22:04 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:22:04 INFO  : 'jtag frequency' command is executed.
+15:22:04 INFO  : Context for 'APU' is selected.
+15:22:04 INFO  : System reset is completed.
+15:22:07 INFO  : 'after 3000' command is executed.
+15:22:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:22:08 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:22:08 INFO  : Context for 'APU' is selected.
+15:22:10 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:22:10 INFO  : 'configparams force-mem-access 1' command is executed.
+15:22:10 INFO  : Context for 'APU' is selected.
+15:22:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:22:10 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:22:10 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:22:10 INFO  : 'set bp_22_10_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:22:11 INFO  : 'con -block -timeout 60' command is executed.
+15:22:11 INFO  : 'bpremove $bp_22_10_fsbl_bp' command is executed.
+15:22:11 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:22:11 INFO  : Context for processor 'microblaze_0' is selected.
+15:22:12 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:22:12 INFO  : 'configparams force-mem-access 0' command is executed.
+15:22:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_22_10_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_22_10_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:22:12 INFO  : Context for processor 'microblaze_0' is selected.
+15:22:12 INFO  : 'con' command is executed.
+15:22:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:22:12 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:23:50 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:23:53 INFO  : Disconnected from the channel tcfchan#46.
+15:23:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:23:54 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:23:54 INFO  : 'jtag frequency' command is executed.
+15:23:54 INFO  : Context for 'APU' is selected.
+15:23:54 INFO  : System reset is completed.
+15:23:57 INFO  : 'after 3000' command is executed.
+15:23:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:23:59 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:23:59 INFO  : Context for 'APU' is selected.
+15:24:00 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:24:00 INFO  : 'configparams force-mem-access 1' command is executed.
+15:24:00 INFO  : Context for 'APU' is selected.
+15:24:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:24:00 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:24:01 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:24:01 INFO  : 'set bp_24_1_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:24:02 INFO  : 'con -block -timeout 60' command is executed.
+15:24:02 INFO  : 'bpremove $bp_24_1_fsbl_bp' command is executed.
+15:24:02 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:24:02 INFO  : Context for processor 'microblaze_0' is selected.
+15:24:02 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:24:02 INFO  : 'configparams force-mem-access 0' command is executed.
+15:24:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_24_1_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_24_1_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:24:03 INFO  : Context for processor 'microblaze_0' is selected.
+15:24:03 INFO  : 'con' command is executed.
+15:24:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:24:03 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:25:16 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:25:23 INFO  : Disconnected from the channel tcfchan#47.
+15:25:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:25:24 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:25:24 INFO  : 'jtag frequency' command is executed.
+15:25:24 INFO  : Context for 'APU' is selected.
+15:25:24 INFO  : System reset is completed.
+15:25:27 INFO  : 'after 3000' command is executed.
+15:25:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:25:28 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:25:28 INFO  : Context for 'APU' is selected.
+15:25:30 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:25:30 INFO  : 'configparams force-mem-access 1' command is executed.
+15:25:30 INFO  : Context for 'APU' is selected.
+15:25:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:25:30 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:25:30 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:25:30 INFO  : 'set bp_25_30_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:25:31 INFO  : 'con -block -timeout 60' command is executed.
+15:25:31 INFO  : 'bpremove $bp_25_30_fsbl_bp' command is executed.
+15:25:31 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:25:31 INFO  : Context for processor 'microblaze_0' is selected.
+15:25:32 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:25:32 INFO  : 'configparams force-mem-access 0' command is executed.
+15:25:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_25_30_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_25_30_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:25:32 INFO  : Context for processor 'microblaze_0' is selected.
+15:25:32 INFO  : 'con' command is executed.
+15:25:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:25:32 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:26:12 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:26:21 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:26:28 INFO  : Disconnected from the channel tcfchan#48.
+15:26:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:26:29 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:26:29 INFO  : 'jtag frequency' command is executed.
+15:26:29 INFO  : Context for 'APU' is selected.
+15:26:29 INFO  : System reset is completed.
+15:26:32 INFO  : 'after 3000' command is executed.
+15:26:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:26:33 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:26:33 INFO  : Context for 'APU' is selected.
+15:26:35 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:26:35 INFO  : 'configparams force-mem-access 1' command is executed.
+15:26:35 INFO  : Context for 'APU' is selected.
+15:26:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:26:35 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:26:35 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:26:35 INFO  : 'set bp_26_35_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:26:36 INFO  : 'con -block -timeout 60' command is executed.
+15:26:36 INFO  : 'bpremove $bp_26_35_fsbl_bp' command is executed.
+15:26:36 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:26:36 INFO  : Context for processor 'microblaze_0' is selected.
+15:26:37 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:26:37 INFO  : 'configparams force-mem-access 0' command is executed.
+15:26:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_26_35_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_26_35_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:26:37 INFO  : Context for processor 'microblaze_0' is selected.
+15:26:37 INFO  : 'con' command is executed.
+15:26:37 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:26:37 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:35:41 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:35:56 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:36:02 INFO  : Disconnected from the channel tcfchan#49.
+15:36:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:36:04 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:36:04 INFO  : 'jtag frequency' command is executed.
+15:36:04 INFO  : Context for 'APU' is selected.
+15:36:04 INFO  : System reset is completed.
+15:36:07 INFO  : 'after 3000' command is executed.
+15:36:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:36:08 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:36:08 INFO  : Context for 'APU' is selected.
+15:36:10 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:36:10 INFO  : 'configparams force-mem-access 1' command is executed.
+15:36:10 INFO  : Context for 'APU' is selected.
+15:36:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:36:10 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:36:10 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:36:10 INFO  : 'set bp_36_10_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:36:11 INFO  : 'con -block -timeout 60' command is executed.
+15:36:11 INFO  : 'bpremove $bp_36_10_fsbl_bp' command is executed.
+15:36:11 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:36:11 INFO  : Context for processor 'microblaze_0' is selected.
+15:36:12 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:36:12 INFO  : 'configparams force-mem-access 0' command is executed.
+15:36:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_36_10_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_36_10_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:36:12 INFO  : Context for processor 'microblaze_0' is selected.
+15:36:12 INFO  : 'con' command is executed.
+15:36:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:36:12 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:36:44 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:36:54 INFO  : Disconnected from the channel tcfchan#50.
+15:36:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:36:55 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:36:56 INFO  : 'jtag frequency' command is executed.
+15:36:56 INFO  : Context for 'APU' is selected.
+15:36:56 INFO  : System reset is completed.
+15:36:59 INFO  : 'after 3000' command is executed.
+15:36:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:37:00 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:37:00 INFO  : Context for 'APU' is selected.
+15:37:01 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:37:01 INFO  : 'configparams force-mem-access 1' command is executed.
+15:37:01 INFO  : Context for 'APU' is selected.
+15:37:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:37:01 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:37:02 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:37:02 INFO  : 'set bp_37_2_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:37:03 INFO  : 'con -block -timeout 60' command is executed.
+15:37:03 INFO  : 'bpremove $bp_37_2_fsbl_bp' command is executed.
+15:37:03 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:37:03 INFO  : Context for processor 'microblaze_0' is selected.
+15:37:03 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:37:03 INFO  : 'configparams force-mem-access 0' command is executed.
+15:37:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_37_2_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_37_2_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:37:04 INFO  : Context for processor 'microblaze_0' is selected.
+15:37:04 INFO  : 'con' command is executed.
+15:37:04 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:37:04 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:39:34 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:39:40 INFO  : Disconnected from the channel tcfchan#51.
+15:39:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:39:41 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:39:41 INFO  : 'jtag frequency' command is executed.
+15:39:41 INFO  : Context for 'APU' is selected.
+15:39:41 INFO  : System reset is completed.
+15:39:44 INFO  : 'after 3000' command is executed.
+15:39:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:39:45 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:39:45 INFO  : Context for 'APU' is selected.
+15:39:47 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:39:47 INFO  : 'configparams force-mem-access 1' command is executed.
+15:39:47 INFO  : Context for 'APU' is selected.
+15:39:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:39:47 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:39:47 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:39:47 INFO  : 'set bp_39_47_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:39:48 INFO  : 'con -block -timeout 60' command is executed.
+15:39:48 INFO  : 'bpremove $bp_39_47_fsbl_bp' command is executed.
+15:39:48 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:39:48 INFO  : Context for processor 'microblaze_0' is selected.
+15:39:49 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:39:49 INFO  : 'configparams force-mem-access 0' command is executed.
+15:39:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_39_47_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_39_47_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:39:49 INFO  : Context for processor 'microblaze_0' is selected.
+15:39:49 INFO  : 'con' command is executed.
+15:39:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:39:49 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:56:35 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+15:56:42 INFO  : Disconnected from the channel tcfchan#52.
+15:56:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:56:43 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+15:56:43 INFO  : 'jtag frequency' command is executed.
+15:56:43 INFO  : Context for 'APU' is selected.
+15:56:43 INFO  : System reset is completed.
+15:56:46 INFO  : 'after 3000' command is executed.
+15:56:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+15:56:47 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+15:56:47 INFO  : Context for 'APU' is selected.
+15:56:50 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+15:56:50 INFO  : 'configparams force-mem-access 1' command is executed.
+15:56:50 INFO  : Context for 'APU' is selected.
+15:56:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:56:50 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:56:50 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:56:50 INFO  : 'set bp_56_50_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+15:56:51 INFO  : 'con -block -timeout 60' command is executed.
+15:56:51 INFO  : 'bpremove $bp_56_50_fsbl_bp' command is executed.
+15:56:51 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+15:56:51 INFO  : Context for processor 'microblaze_0' is selected.
+15:56:52 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+15:56:52 INFO  : 'configparams force-mem-access 0' command is executed.
+15:56:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_56_50_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_56_50_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:56:52 INFO  : Context for processor 'microblaze_0' is selected.
+15:56:52 INFO  : 'con' command is executed.
+15:56:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+15:56:52 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'
+15:59:07 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+16:01:26 INFO  : Checking for BSP changes to sync application flags for project 'projet_vitis'...
+16:01:31 INFO  : Disconnected from the channel tcfchan#53.
+16:01:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:01:32 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77C84A' is selected.
+16:01:32 INFO  : 'jtag frequency' command is executed.
+16:01:32 INFO  : Context for 'APU' is selected.
+16:01:32 INFO  : System reset is completed.
+16:01:35 INFO  : 'after 3000' command is executed.
+16:01:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}' command is executed.
+16:01:36 INFO  : Device configured successfully with "C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit"
+16:01:36 INFO  : Context for 'APU' is selected.
+16:01:38 INFO  : Hardware design and registers information is loaded from 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa'.
+16:01:38 INFO  : 'configparams force-mem-access 1' command is executed.
+16:01:38 INFO  : Context for 'APU' is selected.
+16:01:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:01:38 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:01:38 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:01:38 INFO  : 'set bp_1_38_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]' command is executed.
+16:01:39 INFO  : 'con -block -timeout 60' command is executed.
+16:01:39 INFO  : 'bpremove $bp_1_38_fsbl_bp' command is executed.
+16:01:39 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+16:01:39 INFO  : Context for processor 'microblaze_0' is selected.
+16:01:40 INFO  : The application 'C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf' is downloaded to processor 'microblaze_0'.
+16:01:40 INFO  : 'configparams force-mem-access 0' command is executed.
+16:01:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}
+fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+targets -set -nocase -filter {name =~ "*A9*#0"}
+rst -processor
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf
+set bp_1_38_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]
+con -block -timeout 60
+bpremove $bp_1_38_fsbl_bp
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:01:40 INFO  : Context for processor 'microblaze_0' is selected.
+16:01:40 INFO  : 'con' command is executed.
+16:01:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+16:01:40 INFO  : Launch script is exported to file 'C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis_system\_ide\scripts\debugger_projet_vitis-default.tcl'

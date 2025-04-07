@@ -59,7 +59,7 @@ static uint_t udpEchoTaskStack[ECHO_SERVICE_STACK_SIZE];
  * @brief Start UDP echo service
  * @return Error code
  **/
-uint16_t latestVal2 = 0;
+uint16_t latestVal3 = 0;
 
 EchoServiceContext context;
 
@@ -165,47 +165,45 @@ void udpEchoTask(void)
 
    // Main loop
    {
-      // Attendez un datagramme entrant
       error = socketReceiveFrom(context.socket, &ipAddr, &port,
          context.buffer, ECHO_BUFFER_SIZE, &length, 0);
 
-      if(!error)
+      if (!error)
       {
-         // Ajoutez les données reçues au tampon global
-         context.buffer[length] = 0; // Assurez-vous que la chaîne est terminée par '\0'
+         xil_printf("Taille du message recu : %d octets\n\r", length);
 
-         // Appeler la fonction pour gérer l'accumulation des données
-         if (length >= 5)
-         {
-             // Extraire val1 et val2
-             uint16_t val1 = (context.buffer[0] << 8) | context.buffer[1];
-             latestVal2 = (context.buffer[3] << 8) | context.buffer[4]; // Mise à jour globale
+         context.buffer[length] = 0;
 
-             // Ajouter val1 dans le buffer
-             accumulateBinaryChunk(context.buffer);
+         // Extraction des trois valeurs
+         uint16_t val1 = (uint8_t)context.buffer[0] << 8 | (uint8_t)context.buffer[1];
+         uint16_t val2 = (uint8_t)context.buffer[2] << 8 | (uint8_t)context.buffer[3];
+         latestVal3 = (uint8_t)context.buffer[4] << 8 | (uint8_t)context.buffer[5];
 
-             xil_printf("Donnees recues : ADC = %d, Potentiometre = %d \n\r",
-                        val1, latestVal2, context.buffer[2]);
+         // Ajout de val1 et val2 dans le buffer double
+         accumulateBinaryChunk((uint8_t *)&context.buffer[0]); // val1
+         accumulateBinaryChunk((uint8_t *)&context.buffer[2]); // val2
+
+         // Debug
+         xil_printf("Donnees recues : ADC1 = %d, ADC2 = %d, Potentiometre = %d\n\r",
+                    val1, val2, latestVal3);
+
+         xil_printf("Reception brute : ");
+         for (int i = 0; i < 6; i++) {
+             xil_printf("%02X ", (uint8_t)context.buffer[i]);
          }
 
-
-
-         // Débogage - affiche les tampons accumulés
-         print("Reception brute : ");
-         for (int i = 0; i < 5; i++) {
-             xil_printf("%02X ", context.buffer[i]);
-         }
          printBufferDebug(accumulatedData);
          printBufferDebug(accumulatedData2);
+         xil_printf("\n\rPotentiometre (val3) : %d\n\r", latestVal3);
 
-         xil_printf("\n\r Potentiometre : %d\n\r", latestVal2);
-
-         // Envoyer les données accumulées au client
+         uint8_t myConstant = 0xAB;
          error = socketSendTo(context.socket, &ipAddr, port,
-        		 accumulatedData, strlen(accumulatedData), NULL, 0);
+                              &myConstant, 1, NULL, 0);
       }
    }
 }
+
+
 
 
 void printBufferDebug(const uint8_t *buffer)
