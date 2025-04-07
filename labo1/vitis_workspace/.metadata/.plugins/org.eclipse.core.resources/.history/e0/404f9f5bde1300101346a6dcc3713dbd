@@ -82,7 +82,7 @@ void accumulateBinaryChunk(uint8_t *data)
 
     // Calcul et affichage de l'espace restant
     size_t remaining = ECHO_BUFFER_SIZE - currentLength - 2; // -2 car on va ajouter 2 octets
-    xil_printf("\n\rEspace restant dans le tampon actif : %d octets\n\r", remaining);
+    xil_printf("\n\r[INFO] Espace restant dans le tampon actif : %d octets\n\r", remaining);
 
     // On ajoute seulement val1 (2 octets)
     if (currentLength + 2 < ECHO_BUFFER_SIZE)
@@ -92,7 +92,7 @@ void accumulateBinaryChunk(uint8_t *data)
     }
     else
     {
-        print("Tampon plein, basculement.\n\r");
+        print("[INFO] Tampon plein, basculement.\n\r");
         memset(nextBuffer, 0, ECHO_BUFFER_SIZE);
         nextBuffer[0] = data[0];
         nextBuffer[1] = data[1];
@@ -184,7 +184,7 @@ void udpEchoTask(void)
              // Ajouter val1 dans le buffer
              accumulateBinaryChunk(context.buffer);
 
-             xil_printf("Donnees recues : ADC = %d, Potentiometre = %d \n\r",
+             xil_printf("Données reçues : ADC = %d, Potentiomètre = %d \n\r",
                         val1, latestVal2, context.buffer[2]);
          }
 
@@ -198,7 +198,7 @@ void udpEchoTask(void)
          printBufferDebug(accumulatedData);
          printBufferDebug(accumulatedData2);
 
-         xil_printf("\n\r Potentiometre : %d\n\r", latestVal2);
+         xil_printf("\n\r Potentiomètre : %d\n\r", latestVal2);
 
          // Envoyer les données accumulées au client
          error = socketSendTo(context.socket, &ipAddr, port,

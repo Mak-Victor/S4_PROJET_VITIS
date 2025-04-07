@@ -184,7 +184,7 @@ void udpEchoTask(void)
              // Ajouter val1 dans le buffer
              accumulateBinaryChunk(context.buffer);
 
-             xil_printf("Donnees recues : ADC = %d, Potentiometre = %d \n\r",
+             xil_printf("Donnees reçues : ADC = %d, Potentiometre = %d \n\r",
                         val1, latestVal2, context.buffer[2]);
          }
 

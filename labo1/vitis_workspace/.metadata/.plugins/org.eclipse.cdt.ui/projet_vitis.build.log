@@ -1,4 +1,4 @@
-14:20:33 **** Incremental Build of configuration Debug for project projet_vitis ****
+14:30:19 **** Incremental Build of configuration Debug for project projet_vitis ****
 make all 
 'Building file: ../src/cyclone_tcp/std_services/echo.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -43,9 +43,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Users/victo/OneDrive/Bureau/S4_PROJET_V
 'Invoking: MicroBlaze Print Size'
 mb-size projet_vitis.elf  |tee "projet_vitis.elf.size"
    text	   data	    bss	    dec	    hex	filename
- 114932	   1860	2105168	2221960	 21e788	projet_vitis.elf
+ 114920	   1860	2105164	2221944	 21e778	projet_vitis.elf
 'Finished building: projet_vitis.elf.size'
 ' '
 
-14:20:34 Build Finished (took 934ms)
+14:30:19 Build Finished (took 906ms)
 
