@@ -5573,3 +5573,301 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.]. Thread: Worker-35: Launc
 
 !ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:07:54.352
 !MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:33.630
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/system.mss ], Thread: Worker-54: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:33.636
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-54: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:33.636
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/system.mss], Thread: Worker-54: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:33.636
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "7.3",
+}]. Thread: Worker-54: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-04-07 14:20:33.636
+!MESSAGE Generating MD5 hash for file: C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\main_design_wrapper\export\main_design_wrapper\sw\main_design_wrapper\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:33.636
+!MESSAGE XSCT Command: [::hsi::utils::closesw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/system.mss], Thread: Worker-54: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:33.636
+!MESSAGE XSCT command with result: [::hsi::utils::closesw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-54: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:41.094
+!MESSAGE XSCT Command: [disconnect tcfchan#36], Thread: Thread-2594
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:41.100
+!MESSAGE XSCT command with result: [disconnect tcfchan#36], Result: [null, ]. Thread: Thread-2594
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.105
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.105
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#37]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.105
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.122
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.122
+!MESSAGE XSCT Command: [version -server], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.122
+!MESSAGE XSCT command with result: [version -server], Result: [null, 2020.2]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.122
+!MESSAGE XSCT Command: [version], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.122
+!MESSAGE XSCT command with result: [version], Result: [null, xsct 2020.2
+SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.122
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.131
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.131
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.148
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.148
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.157
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.157
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.168
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.168
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.175
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.177
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.184
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.184
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.193
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.193
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.200
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.210
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.215
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.215
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.215
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.215
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.234
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.234
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.247
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.247
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.254
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.254
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.265
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.265
+!MESSAGE XSCT Command: [jtag targets -set -filter {name =~ "Digilent Zybo Z7 210351A77C84A" && level == 0}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.282
+!MESSAGE XSCT command with result: [jtag targets -set -filter {name =~ "Digilent Zybo Z7 210351A77C84A" && level == 0}], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.282
+!MESSAGE XSCT Command: [jtag frequency], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.282
+!MESSAGE XSCT command with result: [jtag frequency], Result: [null, 15000000]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.282
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*"}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.296
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*"}], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.296
+!MESSAGE XSCT Command: [rst -system], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.374
+!MESSAGE XSCT command with result: [rst -system], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:42.374
+!MESSAGE XSCT Command: [after 3000], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.392
+!MESSAGE XSCT command with result: [after 3000], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.407
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.420
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent Zybo Z7 210351A77C84A]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.420
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.423
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z010 (idcode 13722093 irlen 6 fpga)]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.423
+!MESSAGE XSCT Command: [targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.458
+!MESSAGE XSCT command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77C84A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77C84A-13722093-0"}], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:45.458
+!MESSAGE XSCT Command: [fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:46.678
+!MESSAGE XSCT command with result: [fpga -file C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/_ide/bitstream/main_design_wrapper.bit], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:46.704
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*"}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:46.722
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*"}], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:46.722
+!MESSAGE XSCT Command: [loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.123
+!MESSAGE XSCT command with result: [loadhw -hw C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/hw/main_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs], Result: [null, main_design_wrapper_35]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.123
+!MESSAGE XSCT Command: [configparams force-mem-access 1], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.123
+!MESSAGE XSCT command with result: [configparams force-mem-access 1], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.123
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*"}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.134
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*"}], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.139
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "*A9*#0"}], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.146
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "*A9*#0"}], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.146
+!MESSAGE XSCT Command: [rst -processor], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.155
+!MESSAGE XSCT command with result: [rst -processor], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.155
+!MESSAGE XSCT Command: [dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.402
+!MESSAGE XSCT command with result: [dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/boot/fsbl.elf], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.402
+!MESSAGE XSCT Command: [set bp_20_48_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.436
+!MESSAGE XSCT command with result: [set bp_20_48_fsbl_bp [bpadd -addr &FsblHandoffJtagExit]], Result: [null, 36]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:48.436
+!MESSAGE XSCT Command: [con -block -timeout 60], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.472
+!MESSAGE XSCT command with result: [con -block -timeout 60], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.480
+!MESSAGE XSCT Command: [bpremove $bp_20_48_fsbl_bp], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.481
+!MESSAGE XSCT command with result: [bpremove $bp_20_48_fsbl_bp], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.481
+!MESSAGE XSCT Command: [configparams mdm-detect-bscan-mask 2], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.481
+!MESSAGE XSCT command with result: [configparams mdm-detect-bscan-mask 2], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.481
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.503
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:49.503
+!MESSAGE XSCT Command: [dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.181
+!MESSAGE XSCT command with result: [dow C:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/projet_vitis/Debug/projet_vitis.elf], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.181
+!MESSAGE XSCT Command: [configparams force-mem-access 0], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.195
+!MESSAGE XSCT command with result: [configparams force-mem-access 0], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.242
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.258
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.258
+!MESSAGE XSCT Command: [con], Thread: Worker-35: Launching Debugger_projet_vitis-Default
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-04-07 14:20:50.289
+!MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-35: Launching Debugger_projet_vitis-Default

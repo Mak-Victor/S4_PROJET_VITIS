@@ -202,7 +202,7 @@ void udpEchoTask(void)
 
          // Envoyer les données accumulées au client
          error = socketSendTo(context.socket, &ipAddr, port,
-        		 accumulatedData, strlen(accumulatedData), NULL, 0);
+        		 context.buffer, strlen(accumulatedData), NULL, 0);
       }
    }
 }

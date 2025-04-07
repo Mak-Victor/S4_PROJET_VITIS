@@ -1,4 +1,4 @@
-14:07:40 **** Incremental Build of configuration Debug for project projet_vitis ****
+14:20:33 **** Incremental Build of configuration Debug for project projet_vitis ****
 make all 
 'Building file: ../src/cyclone_tcp/std_services/echo.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -15,11 +15,11 @@ mb-gcc -Wall -O0 -g3 -IC:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/viti
 ../src/cyclone_tcp/std_services/echo.c:198:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
   198 |          printBufferDebug(accumulatedData);
       |          ^~~~~~~~~~~~~~~~
-../src/cyclone_tcp/std_services/echo.c:205:35: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  205 |            context.buffer, strlen(accumulatedData), NULL, 0);
-      |                                   ^~~~~~~~~~~~~~~
-      |                                   |
-      |                                   uint8_t * {aka unsigned char *}
+../src/cyclone_tcp/std_services/echo.c:205:36: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  205 |            accumulatedData, strlen(accumulatedData), NULL, 0);
+      |                                    ^~~~~~~~~~~~~~~
+      |                                    |
+      |                                    uint8_t * {aka unsigned char *}
 In file included from C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src/cyclone_tcp/ipv4/ipv4.h:40,
                  from C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src/cyclone_tcp/core/net.h:43,
                  from ../src/cyclone_tcp/std_services/echo.c:38:
@@ -47,5 +47,5 @@ mb-size projet_vitis.elf  |tee "projet_vitis.elf.size"
 'Finished building: projet_vitis.elf.size'
 ' '
 
-14:07:41 Build Finished (took 936ms)
+14:20:34 Build Finished (took 934ms)
 

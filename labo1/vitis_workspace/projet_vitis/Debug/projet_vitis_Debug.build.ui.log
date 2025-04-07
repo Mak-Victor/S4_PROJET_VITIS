@@ -1,4 +1,4 @@
-2025-04-07T14:07:40.522503400255-14:07:40 **** Incremental Build of configuration Debug for project projet_vitis ****
+2025-04-07T14:20:33.668132300255-14:20:33 **** Incremental Build of configuration Debug for project projet_vitis ****
 000-make all 
 000-'Building file: ../src/cyclone_tcp/std_services/echo.c'
 000-'Invoking: MicroBlaze gcc compiler'
@@ -15,11 +15,11 @@
 000/projet_vitis/src/cyclone_tcp/std_services/echo.c198-1-1implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]1-../src/cyclone_tcp/std_services/echo.c:198:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
 000-  198 |          printBufferDebug(accumulatedData);
 000-      |          ^~~~~~~~~~~~~~~~
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c205-1-1pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]1-../src/cyclone_tcp/std_services/echo.c:205:35: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-000-  205 |            context.buffer, strlen(accumulatedData), NULL, 0);
-000-      |                                   ^~~~~~~~~~~~~~~
-000-      |                                   |
-000-      |                                   uint8_t * {aka unsigned char *}
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c205-1-1pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]1-../src/cyclone_tcp/std_services/echo.c:205:36: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+000-  205 |            accumulatedData, strlen(accumulatedData), NULL, 0);
+000-      |                                    ^~~~~~~~~~~~~~~
+000-      |                                    |
+000-      |                                    uint8_t * {aka unsigned char *}
 000-In file included from C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src/cyclone_tcp/ipv4/ipv4.h:40,
 000-                 from C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src/cyclone_tcp/core/net.h:43,
 000-                 from ../src/cyclone_tcp/std_services/echo.c:38:
@@ -47,5 +47,5 @@
 000-'Finished building: projet_vitis.elf.size'
 000-' '
 00255-
-14:07:41 Build Finished (took 936ms)
+14:20:34 Build Finished (took 934ms)
 
