@@ -1,21 +1,51 @@
-2025-03-27T02:07:22.207459600255-02:07:22 **** Incremental Build of configuration Debug for project projet_vitis ****
+2025-04-07T14:07:40.522503400255-14:07:40 **** Incremental Build of configuration Debug for project projet_vitis ****
 000-make all 
 000-'Building file: ../src/cyclone_tcp/std_services/echo.c'
 000-'Invoking: MicroBlaze gcc compiler'
-000-mb-gcc -Wall -O0 -g3 -IC:/Users/victo/OneDrive/Bureau/ProjetCode/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/bspinclude/include -I"C:\Users\victo\OneDrive\Bureau\ProjetCode\labo1\vitis_workspace\projet_vitis\src" -c -fmessage-length=0 -MT"src/cyclone_tcp/std_services/echo.o" -mlittle-endian -mno-xl-soft-div -mcpu=v11.0 -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/cyclone_tcp/std_services/echo.d" -MT"src/cyclone_tcp/std_services/echo.o" -o "src/cyclone_tcp/std_services/echo.o" "../src/cyclone_tcp/std_services/echo.c"
+000-mb-gcc -Wall -O0 -g3 -IC:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/bspinclude/include -I"C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src" -c -fmessage-length=0 -MT"src/cyclone_tcp/std_services/echo.o" -mlittle-endian -mno-xl-soft-div -mcpu=v11.0 -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/cyclone_tcp/std_services/echo.d" -MT"src/cyclone_tcp/std_services/echo.o" -o "src/cyclone_tcp/std_services/echo.o" "../src/cyclone_tcp/std_services/echo.c"
+000-../src/cyclone_tcp/std_services/echo.c: In function 'udpEchoTask':
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c185-1-1pointer targets in passing argument 1 of 'accumulateBinaryChunk' differ in signedness [-Wpointer-sign]1-../src/cyclone_tcp/std_services/echo.c:185:43: warning: pointer targets in passing argument 1 of 'accumulateBinaryChunk' differ in signedness [-Wpointer-sign]
+000-  185 |              accumulateBinaryChunk(context.buffer);
+000-      |                                    ~~~~~~~^~~~~~~
+000-      |                                           |
+000-      |                                           char_t * {aka char *}
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c70-1-1expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char_t *' {aka 'char *'}0-../src/cyclone_tcp/std_services/echo.c:70:37: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char_t *' {aka 'char *'}
+000-   70 | void accumulateBinaryChunk(uint8_t *data)
+000-      |                            ~~~~~~~~~^~~~
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c198-1-1implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]1-../src/cyclone_tcp/std_services/echo.c:198:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
+000-  198 |          printBufferDebug(accumulatedData);
+000-      |          ^~~~~~~~~~~~~~~~
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c205-1-1pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]1-../src/cyclone_tcp/std_services/echo.c:205:35: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+000-  205 |            context.buffer, strlen(accumulatedData), NULL, 0);
+000-      |                                   ^~~~~~~~~~~~~~~
+000-      |                                   |
+000-      |                                   uint8_t * {aka unsigned char *}
+000-In file included from C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src/cyclone_tcp/ipv4/ipv4.h:40,
+000-                 from C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src/cyclone_tcp/core/net.h:43,
+000-                 from ../src/cyclone_tcp/std_services/echo.c:38:
+000/projet_vitis41-1-1expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}0-c:\xilinx\vitis\2020.2\gnu\microblaze\nt\microblazeeb-xilinx-elf\usr\include\string.h:41:17: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+000-   41 | size_t  strlen (const char *);
+000-      |                 ^~~~~~~~~~~~
+000-../src/cyclone_tcp/std_services/echo.c: At top level:
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c211-1-1conflicting types for 'printBufferDebug'1printBufferDebug../src/cyclone_tcp/std_services/echo.c:211:6: warning: conflicting types for 'printBufferDebug'
+000-  211 | void printBufferDebug(const uint8_t *buffer)
+000-      |      ^~~~~~~~~~~~~~~~
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c198-1-1previous implicit declaration of 'printBufferDebug' was here0-../src/cyclone_tcp/std_services/echo.c:198:10: note: previous implicit declaration of 'printBufferDebug' was here
+000-  198 |          printBufferDebug(accumulatedData);
+000-      |          ^~~~~~~~~~~~~~~~
 000-'Finished building: ../src/cyclone_tcp/std_services/echo.c'
 000-' '
 000-'Building target: projet_vitis.elf'
 000-'Invoking: MicroBlaze gcc linker'
-000-mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Users/victo/OneDrive/Bureau/ProjetCode/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/bsplib/lib -mlittle-endian -mno-xl-soft-div -mcpu=v11.0 -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -Wl,--gc-sections -o "projet_vitis.elf"  ./src/cyclone_tcp/std_services/echo.o  ./src/cyclone_tcp/ipv4/arp.o ./src/cyclone_tcp/ipv4/ipv4.o  ./src/cyclone_tcp/drivers/eth/enc624j600_driver.o  ./src/cyclone_tcp/core/ethernet.o ./src/cyclone_tcp/core/ip.o ./src/cyclone_tcp/core/net.o ./src/cyclone_tcp/core/net_mem.o ./src/cyclone_tcp/core/nic.o ./src/cyclone_tcp/core/socket.o ./src/cyclone_tcp/core/udp.o  ./src/cyclone_tcp/ext_int_driver.o ./src/cyclone_tcp/spi_driver.o  ./src/common/cpu_endian.o ./src/common/date_time.o ./src/common/os_port_none.o  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+000-mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/bsplib/lib -mlittle-endian -mno-xl-soft-div -mcpu=v11.0 -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -Wl,--gc-sections -o "projet_vitis.elf"  ./src/cyclone_tcp/std_services/echo.o  ./src/cyclone_tcp/ipv4/arp.o ./src/cyclone_tcp/ipv4/ipv4.o  ./src/cyclone_tcp/drivers/eth/enc624j600_driver.o  ./src/cyclone_tcp/core/ethernet.o ./src/cyclone_tcp/core/ip.o ./src/cyclone_tcp/core/net.o ./src/cyclone_tcp/core/net_mem.o ./src/cyclone_tcp/core/nic.o ./src/cyclone_tcp/core/socket.o ./src/cyclone_tcp/core/udp.o  ./src/cyclone_tcp/ext_int_driver.o ./src/cyclone_tcp/spi_driver.o  ./src/common/cpu_endian.o ./src/common/date_time.o ./src/common/os_port_none.o  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 000-'Finished building target: projet_vitis.elf'
 000-' '
 000-'Invoking: MicroBlaze Print Size'
 000-mb-size projet_vitis.elf  |tee "projet_vitis.elf.size"
 000-   text	   data	    bss	    dec	    hex	filename
-000- 114496	   1860	2099076	2215432	 21ce08	projet_vitis.elf
+000- 114932	   1860	2105168	2221960	 21e788	projet_vitis.elf
 000-'Finished building: projet_vitis.elf.size'
 000-' '
 00255-
-02:07:23 Build Finished (took 848ms)
+14:07:41 Build Finished (took 936ms)
 

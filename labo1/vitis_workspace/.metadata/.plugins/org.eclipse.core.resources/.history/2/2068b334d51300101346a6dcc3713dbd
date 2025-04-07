@@ -1,0 +1,219 @@
+/**
+ * @file echo.c
+ * @brief Echo protocol
+ *
+ * @section License
+ *
+ * Copyright (C) 2010-2018 Oryx Embedded SARL. All rights reserved.
+ *
+ * This file is part of CycloneTCP Open.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ *
+ * @section Description
+ *
+ * The echo service simply sends back to the originating source
+ * any data it receives. Refer to RFC 862 for complete details
+ *
+ * @author Oryx Embedded SARL (www.oryx-embedded.com)
+ * @version 1.9.0
+ **/
+
+//Switch to the appropriate trace level
+#define TRACE_LEVEL STD_SERVICES_TRACE_LEVEL
+
+//Dependencies
+#include "cyclone_tcp/core/net.h"
+#include "cyclone_tcp/std_services/echo.h"
+#include "xil_io.h"
+#include "cyclone_tcp/core/socket.h"
+
+//Check TCP/IP stack configuration
+#if (NET_STATIC_OS_RESOURCES == ENABLED)
+
+//UDP Echo service
+static OsTask udpEchoTaskStruct;
+static uint_t udpEchoTaskStack[ECHO_SERVICE_STACK_SIZE];
+
+#endif
+
+
+/**
+ * @brief Start TCP echo service
+ * @return Error code
+ **/
+
+/**
+ * @brief Start UDP echo service
+ * @return Error code
+ **/
+
+EchoServiceContext context;
+
+uint8_t accumulatedData[ECHO_BUFFER_SIZE] = {0};
+uint8_t accumulatedData2[ECHO_BUFFER_SIZE] = {0};
+int activeBuffer = 0; // Indique quel tampon est actif
+
+void accumulateBinaryCommand(uint16_t val1, char cmd, uint16_t val2)
+{
+    uint8_t *currentBuffer = activeBuffer ? accumulatedData2 : accumulatedData;
+    uint8_t *nextBuffer = activeBuffer ? accumulatedData : accumulatedData2;
+
+    size_t currentLength = 0;
+
+    // Recherche de la longueur actuelle dans le tampon actif
+    for (size_t i = 0; i < ECHO_BUFFER_SIZE; i++) {
+        if (currentBuffer[i] == 0) break;
+        currentLength++;
+    }
+
+    // On veut ajouter 5 octets
+    if (currentLength + 5 < ECHO_BUFFER_SIZE)
+    {
+        currentBuffer[currentLength++] = (val1 >> 8) & 0xFF;
+        currentBuffer[currentLength++] = val1 & 0xFF;
+        currentBuffer[currentLength++] = (uint8_t)cmd;
+        currentBuffer[currentLength++] = (val2 >> 8) & 0xFF;
+        currentBuffer[currentLength++] = val2 & 0xFF;
+    }
+    else
+    {
+        print("[INFO] Tampon plein, on bascule.\n\r");
+        // Basculer vers l'autre buffer et recommencer depuis zéro
+        memset(nextBuffer, 0, ECHO_BUFFER_SIZE);
+        nextBuffer[0] = (val1 >> 8) & 0xFF;
+        nextBuffer[1] = val1 & 0xFF;
+        nextBuffer[2] = (uint8_t)cmd;
+        nextBuffer[3] = (val2 >> 8) & 0xFF;
+        nextBuffer[4] = val2 & 0xFF;
+        activeBuffer = !activeBuffer;
+        remainingSpace = ECHO_BUFFER_SIZE - strlen(nextBuffer); // reset remaining for new buffer
+    }
+
+    // Afficher l'espace restant
+    char msg[64];
+    sprintf(msg, "\n\r[DEBUG] Espace restant dans le tampon actif : %u octets\n\r", (unsigned int)remainingSpace);
+    print(msg);
+}
+
+
+
+error_t udpEchoStart(void)
+{
+   error_t error;
+
+   //Allocate a memory block to hold the context
+   if(context.socket) socketClose(context.socket);
+   //Failed to allocate memory?
+
+   //Start of exception handling block
+   do
+   {
+      //Open a UDP socket
+      context.socket = socketOpen(SOCKET_TYPE_DGRAM, SOCKET_IP_PROTO_UDP);
+
+      //Failed to open socket?
+      if(context.socket == NULL)
+      {
+         //Report an error
+         error = ERROR_OPEN_FAILED;
+         //Exit immediately
+         break;
+      }
+
+      //The server listens for incoming datagrams on port 8080
+      error = socketBind(context.socket, &IP_ADDR_ANY, ECHO_PORT);
+      //Unable to bind the socket to the desired port?
+      if(error)
+         break;
+      //End of exception handling block
+   } while(0);
+
+   //Any error to report?
+   if(error)
+   {
+      //Clean up side effects...
+	   print("failinit");
+      socketClose(context.socket);
+   }
+
+   //Return status code
+   return error;
+}
+
+
+/**
+ * @brief UDP echo service implementation
+ * @param[in] param Pointer to the echo service context
+ **/
+
+
+
+void udpEchoTask(void)
+{
+   error_t error;
+   size_t length;
+   uint16_t port;
+   IpAddr ipAddr;
+
+   // Main loop
+   {
+      // Attendez un datagramme entrant
+      error = socketReceiveFrom(context.socket, &ipAddr, &port,
+         context.buffer, ECHO_BUFFER_SIZE, &length, 0);
+
+      if(!error)
+      {
+         // Ajoutez les données reçues au tampon global
+         context.buffer[length] = 0; // Assurez-vous que la chaîne est terminée par '\0'
+
+         // Appeler la fonction pour gérer l'accumulation des données
+         if (length >= 5 && context.buffer[2] == 'p')
+         {
+             uint16_t val1 = (context.buffer[0] << 8) | context.buffer[1];
+             uint16_t val2 = (context.buffer[3] << 8) | context.buffer[4];
+
+             accumulateBinaryCommand(val1, 'p', val2);
+
+             xil_printf("\n\rCommande 'p' reçue : val1 = %d, val2 = %d\n\r", val1, val2);
+         }
+
+         // Débogage - affiche les tampons accumulés
+         print("\n\rReception brute : ");
+         for (int i = 0; i < 5; i++) {
+             xil_printf("%02X ", context.buffer[i]);
+         }
+         printBufferDebug(accumulatedData);
+         printBufferDebug(accumulatedData2);
+
+
+         // Envoyer les données accumulées au client
+         error = socketSendTo(context.socket, &ipAddr, port,
+        		 context.buffer, strlen(accumulatedData), NULL, 0);
+      }
+   }
+}
+
+
+void printBufferDebug(const uint8_t *buffer)
+{
+    xil_printf("\n\r[DEBUG] Buffer : ");
+    for (int i = 0; i < ECHO_BUFFER_SIZE; i++)
+    {
+        if (buffer[i] == 0) break;
+        xil_printf("%02X ", buffer[i]);
+    }
+    xil_printf("\n\r");
+}
