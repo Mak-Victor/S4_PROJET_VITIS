@@ -1,18 +1,30 @@
-16:01:26 **** Incremental Build of configuration Debug for project projet_vitis ****
+15:36:26 **** Incremental Build of configuration Debug for project projet_vitis ****
 make all 
 'Building file: ../src/cyclone_tcp/std_services/echo.c'
 'Invoking: MicroBlaze gcc compiler'
 mb-gcc -Wall -O0 -g3 -IC:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/bspinclude/include -I"C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src" -c -fmessage-length=0 -MT"src/cyclone_tcp/std_services/echo.o" -mlittle-endian -mno-xl-soft-div -mcpu=v11.0 -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/cyclone_tcp/std_services/echo.d" -MT"src/cyclone_tcp/std_services/echo.o" -o "src/cyclone_tcp/std_services/echo.o" "../src/cyclone_tcp/std_services/echo.c"
+../src/cyclone_tcp/std_services/echo.c: In function 'accumulateBinaryChunk':
+../src/cyclone_tcp/std_services/echo.c:85:12: warning: unused variable 'remaining' [-Wunused-variable]
+   85 |     size_t remaining = ECHO_BUFFER_SIZE - currentLength - 2; // -2 car on va ajouter 2 octets
+      |            ^~~~~~~~~
 ../src/cyclone_tcp/std_services/echo.c: In function 'udpEchoTask':
-../src/cyclone_tcp/std_services/echo.c:195:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
-  195 |          printBufferDebug(accumulatedData);
+../src/cyclone_tcp/std_services/echo.c:183:37: warning: pointer targets in passing argument 1 of 'accumulateBinaryChunk' differ in signedness [-Wpointer-sign]
+  183 |               accumulateBinaryChunk(&context.buffer[2*i]);
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     char_t * {aka char *}
+../src/cyclone_tcp/std_services/echo.c:71:37: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char_t *' {aka 'char *'}
+   71 | void accumulateBinaryChunk(uint8_t *data)
+      |                            ~~~~~~~~~^~~~
+../src/cyclone_tcp/std_services/echo.c:187:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
+  187 |          printBufferDebug(accumulatedData);
       |          ^~~~~~~~~~~~~~~~
 ../src/cyclone_tcp/std_services/echo.c: At top level:
-../src/cyclone_tcp/std_services/echo.c:209:6: warning: conflicting types for 'printBufferDebug'
-  209 | void printBufferDebug(const uint8_t *buffer)
+../src/cyclone_tcp/std_services/echo.c:215:6: warning: conflicting types for 'printBufferDebug'
+  215 | void printBufferDebug(const uint8_t *buffer)
       |      ^~~~~~~~~~~~~~~~
-../src/cyclone_tcp/std_services/echo.c:195:10: note: previous implicit declaration of 'printBufferDebug' was here
-  195 |          printBufferDebug(accumulatedData);
+../src/cyclone_tcp/std_services/echo.c:187:10: note: previous implicit declaration of 'printBufferDebug' was here
+  187 |          printBufferDebug(accumulatedData);
       |          ^~~~~~~~~~~~~~~~
 'Finished building: ../src/cyclone_tcp/std_services/echo.c'
 ' '
@@ -24,9 +36,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LC:/Users/victo/OneDrive/Bureau/S4_PROJET_V
 'Invoking: MicroBlaze Print Size'
 mb-size projet_vitis.elf  |tee "projet_vitis.elf.size"
    text	   data	    bss	    dec	    hex	filename
- 115008	   1860	2105164	2222032	 21e7d0	projet_vitis.elf
+ 114936	   1860	2105164	2221960	 21e788	projet_vitis.elf
 'Finished building: projet_vitis.elf.size'
 ' '
 
-16:01:27 Build Finished (took 943ms)
+15:36:27 Build Finished (took 889ms)
 

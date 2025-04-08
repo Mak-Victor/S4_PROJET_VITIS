@@ -33,6 +33,7 @@
 
 //Switch to the appropriate trace level
 #define TRACE_LEVEL STD_SERVICES_TRACE_LEVEL
+#define taille_buff_rec 65
 
 //Dependencies
 #include "cyclone_tcp/core/net.h"
@@ -82,7 +83,7 @@ void accumulateBinaryChunk(uint8_t *data)
 
     // Calcul et affichage de l'espace restant
     size_t remaining = ECHO_BUFFER_SIZE - currentLength - 2; // -2 car on va ajouter 2 octets
-    xil_printf("\n\rEspace restant dans le tampon actif : %d octets\n\r", remaining);
+    //xil_printf("\n\rEspace restant dans le tampon actif : %d octets\n\r", remaining);
 
     // On ajoute seulement val1 (2 octets)
     if (currentLength + 2 < ECHO_BUFFER_SIZE)
@@ -174,31 +175,36 @@ void udpEchoTask(void)
 
          context.buffer[length] = 0;
 
-         // Extraction des trois valeurs
-         uint16_t val1 = (uint8_t)context.buffer[0] << 8 | (uint8_t)context.buffer[1];
-         uint16_t val2 = (uint8_t)context.buffer[2] << 8 | (uint8_t)context.buffer[3];
-         latestVal3 = (uint8_t)context.buffer[4] << 8 | (uint8_t)context.buffer[5];
-
-         // Ajout de val1 et val2 dans le buffer double
-         accumulateBinaryChunk((uint8_t *)&context.buffer[0]); // val1
-         accumulateBinaryChunk((uint8_t *)&context.buffer[2]); // val2
-
-         // Debug
-         xil_printf("Donnees recues : ADC1 = %d, ADC2 = %d, Potentiometre = %d\n\r",
-                    val1, val2, latestVal3);
-
-         xil_printf("Reception brute : ");
-         for (int i = 0; i < 6; i++) {
-             xil_printf("%02X ", (uint8_t)context.buffer[i]);
+         // Extraction et ajout des 60 valeurs dans le buffer double
+         uint16_t val[taille_buff_rec];
+         for (int i = 0; i < taille_buff_rec; i++) {
+             val[i] = (uint8_t)context.buffer[2*i] << 8 | (uint8_t)context.buffer[2*i + 1];
+             if(i != 0){
+            	 accumulateBinaryChunk(&context.buffer[2*i]);
+             }
          }
 
          printBufferDebug(accumulatedData);
          printBufferDebug(accumulatedData2);
-         xil_printf("\n\rPotentiometre (val3) : %d\n\r", latestVal3);
+         xil_printf("\n\rPotentiometre (val3) : %d\n\r", val[0]);
 
-         uint8_t myConstant = 0xAB;
+
+         float f1 = 1.23f;
+         float f2 = 4.56f;
+         float f3 = 7.89f;
+         float f4 = 10.11f;
+         uint8_t floatBuffer[16];  // 4 floats × 4 bytes
+         memcpy(&floatBuffer[0], &f1, sizeof(float));
+         memcpy(&floatBuffer[4], &f2, sizeof(float));
+         memcpy(&floatBuffer[8], &f3, sizeof(float));
+         memcpy(&floatBuffer[12], &f4, sizeof(float));
+
          error = socketSendTo(context.socket, &ipAddr, port,
-                              &myConstant, 1, NULL, 0);
+                              floatBuffer, sizeof(floatBuffer), NULL, 0);
+
+         if (error) {
+             xil_printf("Failed to send float data: %d\n\r", error);
+         }
       }
    }
 }
@@ -208,7 +214,7 @@ void udpEchoTask(void)
 
 void printBufferDebug(const uint8_t *buffer)
 {
-    xil_printf("\n\r ADC : ");
+    xil_printf("\n\n\r ADC : ");
     for (int i = 0; i < ECHO_BUFFER_SIZE; i++)
     {
         if (buffer[i] == 0) break;
