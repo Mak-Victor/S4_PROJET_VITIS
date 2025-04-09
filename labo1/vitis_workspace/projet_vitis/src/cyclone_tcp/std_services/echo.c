@@ -40,6 +40,7 @@
 #include "cyclone_tcp/std_services/echo.h"
 #include "xil_io.h"
 #include "cyclone_tcp/core/socket.h"
+#include <stdbool.h>
 
 //Check TCP/IP stack configuration
 #if (NET_STATIC_OS_RESOURCES == ENABLED)
@@ -64,15 +65,22 @@ uint16_t latestVal3 = 0;
 
 EchoServiceContext context;
 
-uint8_t accumulatedData[ECHO_BUFFER_SIZE] = {0};
-uint8_t accumulatedData2[ECHO_BUFFER_SIZE] = {0};
-int activeBuffer = 0; // Indique quel tampon est actif
+uint16_t accumulatedData[ECHO_BUFFER_SIZE] = {0};
+uint16_t accumulatedData2[ECHO_BUFFER_SIZE] = {0};
+bool activeBuffer = 0; // Indique quel tampon est actif
+
+uint16_t *currentBuffer = accumulatedData;
+uint16_t *nextBuffer = accumulatedData2;
+
+uint16_t current_len = 0;
+
+
 
 void accumulateValue(uint16_t value)
 {
-    uint16_t *currentBuffer = activeBuffer ? accumulatedData2 : accumulatedData;
-    uint16_t *nextBuffer = activeBuffer ? accumulatedData : accumulatedData2;
 
+
+    /*
     size_t currentLength = 0;
 
     // Recherche de la fin du tampon (0 considéré comme fin logique)
@@ -81,13 +89,25 @@ void accumulateValue(uint16_t value)
         currentLength++;
     }
 
-    if (currentLength + 1 < ECHO_BUFFER_SIZE) {
-        currentBuffer[currentLength] = value;
-    } else {
-        print("Tampon plein, basculement.\n\r");
-        memset(nextBuffer, 0, ECHO_BUFFER_SIZE); // en octets
-        nextBuffer[0] = value;
+    */
+
+    if (current_len <= ECHO_BUFFER_SIZE-1) {
+        currentBuffer[current_len] = value;
+        current_len++;
+    }
+
+
+
+    else {
+        //print("Tampon plein, basculement.\n\r");
+        // memset(nextBuffer, 0, ECHO_BUFFER_SIZE); // en octets
+    	current_len = 0;
+        nextBuffer[current_len] = value;
+        current_len++;
         activeBuffer = !activeBuffer;
+
+        currentBuffer = activeBuffer ? accumulatedData2 : accumulatedData;
+        nextBuffer = activeBuffer ? accumulatedData : accumulatedData2;
     }
 }
 
@@ -132,7 +152,7 @@ error_t udpEchoStart(void)
    if(error)
    {
       //Clean up side effects...
-	   print("failinit");
+	   //print("failinit");
       socketClose(context.socket);
    }
 
@@ -162,7 +182,7 @@ void udpEchoTask(void)
 
       if (!error)
       {
-         xil_printf("Taille du message recu : %d octets\n\r", length);
+         //xil_printf("Taille du message recu : %d octets\n\r", length);
 
          context.buffer[length] = 0;
 
@@ -171,14 +191,16 @@ void udpEchoTask(void)
          for (int i = 0; i < taille_buff_rec; i++) {
         	 val[i] = (uint8_t)context.buffer[2*i] << 8 | (uint8_t)context.buffer[2*i + 1];
         	 if (i != 0) {
+        		 //xil_printf(val[i]);
+        		 //xil_printf("\n\r ");
         	     accumulateValue(val[i]);
         	 }
 
          }
 
-         printBufferDebug(accumulatedData);
-         printBufferDebug(accumulatedData2);
-         xil_printf("\n\rPotentiometre (val3) : %d\n\r", val[0]);
+         //printBufferDebug(accumulatedData);
+         //printBufferDebug(accumulatedData2);
+         //xil_printf("\n\rPotentiometre : %d\n\r", val[0]);
 
 
          float f1 = 1.23f;
@@ -195,7 +217,7 @@ void udpEchoTask(void)
                               floatBuffer, sizeof(floatBuffer), NULL, 0);
 
          if (error) {
-             xil_printf("Failed to send float data: %d\n\r", error);
+             //xil_printf("Failed to send float data: %d\n\r", error);
          }
       }
    }
