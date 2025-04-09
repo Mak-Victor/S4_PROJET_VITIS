@@ -1,30 +1,25 @@
-2025-04-08T15:36:26.318175900255-15:36:26 **** Incremental Build of configuration Debug for project projet_vitis ****
+2025-04-09T10:18:53.882412800255-10:18:53 **** Incremental Build of configuration Debug for project projet_vitis ****
 000-make all 
 000-'Building file: ../src/cyclone_tcp/std_services/echo.c'
 000-'Invoking: MicroBlaze gcc compiler'
 000-mb-gcc -Wall -O0 -g3 -IC:/Users/victo/OneDrive/Bureau/S4_PROJET_VITIS/labo1/vitis_workspace/main_design_wrapper/export/main_design_wrapper/sw/main_design_wrapper/standalone_domain/bspinclude/include -I"C:\Users\victo\OneDrive\Bureau\S4_PROJET_VITIS\labo1\vitis_workspace\projet_vitis\src" -c -fmessage-length=0 -MT"src/cyclone_tcp/std_services/echo.o" -mlittle-endian -mno-xl-soft-div -mcpu=v11.0 -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/cyclone_tcp/std_services/echo.d" -MT"src/cyclone_tcp/std_services/echo.o" -o "src/cyclone_tcp/std_services/echo.o" "../src/cyclone_tcp/std_services/echo.c"
-000-../src/cyclone_tcp/std_services/echo.c: In function 'accumulateBinaryChunk':
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c85-1-1unused variable 'remaining' [-Wunused-variable]1-../src/cyclone_tcp/std_services/echo.c:85:12: warning: unused variable 'remaining' [-Wunused-variable]
-000-   85 |     size_t remaining = ECHO_BUFFER_SIZE - currentLength - 2; // -2 car on va ajouter 2 octets
-000-      |            ^~~~~~~~~
+000-../src/cyclone_tcp/std_services/echo.c: In function 'accumulateValue':
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c73-1-1initialization of 'uint16_t *' {aka 'short unsigned int *'} from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]1-../src/cyclone_tcp/std_services/echo.c:73:31: warning: initialization of 'uint16_t *' {aka 'short unsigned int *'} from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]
+000-   73 |     uint16_t *currentBuffer = activeBuffer ? accumulatedData2 : accumulatedData;
+000-      |                               ^~~~~~~~~~~~
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c74-1-1initialization of 'uint16_t *' {aka 'short unsigned int *'} from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]1-../src/cyclone_tcp/std_services/echo.c:74:28: warning: initialization of 'uint16_t *' {aka 'short unsigned int *'} from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]
+000-   74 |     uint16_t *nextBuffer = activeBuffer ? accumulatedData : accumulatedData2;
+000-      |                            ^~~~~~~~~~~~
 000-../src/cyclone_tcp/std_services/echo.c: In function 'udpEchoTask':
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c183-1-1pointer targets in passing argument 1 of 'accumulateBinaryChunk' differ in signedness [-Wpointer-sign]1-../src/cyclone_tcp/std_services/echo.c:183:37: warning: pointer targets in passing argument 1 of 'accumulateBinaryChunk' differ in signedness [-Wpointer-sign]
-000-  183 |               accumulateBinaryChunk(&context.buffer[2*i]);
-000-      |                                     ^~~~~~~~~~~~~~~~~~~~
-000-      |                                     |
-000-      |                                     char_t * {aka char *}
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c71-1-1expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char_t *' {aka 'char *'}0-../src/cyclone_tcp/std_services/echo.c:71:37: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char_t *' {aka 'char *'}
-000-   71 | void accumulateBinaryChunk(uint8_t *data)
-000-      |                            ~~~~~~~~~^~~~
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c187-1-1implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]1-../src/cyclone_tcp/std_services/echo.c:187:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
-000-  187 |          printBufferDebug(accumulatedData);
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c179-1-1implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]1-../src/cyclone_tcp/std_services/echo.c:179:10: warning: implicit declaration of function 'printBufferDebug' [-Wimplicit-function-declaration]
+000-  179 |          printBufferDebug(accumulatedData);
 000-      |          ^~~~~~~~~~~~~~~~
 000-../src/cyclone_tcp/std_services/echo.c: At top level:
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c215-1-1conflicting types for 'printBufferDebug'1printBufferDebug../src/cyclone_tcp/std_services/echo.c:215:6: warning: conflicting types for 'printBufferDebug'
-000-  215 | void printBufferDebug(const uint8_t *buffer)
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c207-1-1conflicting types for 'printBufferDebug'1printBufferDebug../src/cyclone_tcp/std_services/echo.c:207:6: warning: conflicting types for 'printBufferDebug'
+000-  207 | void printBufferDebug(const uint16_t *buffer)
 000-      |      ^~~~~~~~~~~~~~~~
-000/projet_vitis/src/cyclone_tcp/std_services/echo.c187-1-1previous implicit declaration of 'printBufferDebug' was here0-../src/cyclone_tcp/std_services/echo.c:187:10: note: previous implicit declaration of 'printBufferDebug' was here
-000-  187 |          printBufferDebug(accumulatedData);
+000/projet_vitis/src/cyclone_tcp/std_services/echo.c179-1-1previous implicit declaration of 'printBufferDebug' was here0-../src/cyclone_tcp/std_services/echo.c:179:10: note: previous implicit declaration of 'printBufferDebug' was here
+000-  179 |          printBufferDebug(accumulatedData);
 000-      |          ^~~~~~~~~~~~~~~~
 000-'Finished building: ../src/cyclone_tcp/std_services/echo.c'
 000-' '
@@ -36,9 +31,9 @@
 000-'Invoking: MicroBlaze Print Size'
 000-mb-size projet_vitis.elf  |tee "projet_vitis.elf.size"
 000-   text	   data	    bss	    dec	    hex	filename
-000- 114936	   1860	2105164	2221960	 21e788	projet_vitis.elf
+000- 114896	   1860	2105164	2221920	 21e760	projet_vitis.elf
 000-'Finished building: projet_vitis.elf.size'
 000-' '
 00255-
-15:36:27 Build Finished (took 889ms)
+10:18:55 Build Finished (took 1s.607ms)
 

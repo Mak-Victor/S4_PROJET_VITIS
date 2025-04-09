@@ -120,3 +120,14 @@ timestamp=[2025-04-08 15:23:15], mode=BUILD, duration=0:00:01.978, duration_ms=1
 timestamp=[2025-04-08 15:32:28], mode=BUILD, duration=0:00:00.890, duration_ms=890, data={name=projet_vitis, configuration=Debug, clean_build=false}
 timestamp=[2025-04-08 15:33:25], mode=BUILD, duration=0:00:00.952, duration_ms=952, data={name=projet_vitis, configuration=Debug, clean_build=false}
 timestamp=[2025-04-08 15:36:27], mode=BUILD, duration=0:00:00.901, duration_ms=901, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 09:33:40], mode=WORKBENCH_START, duration=0:00:17.399, duration_ms=17399, data={}
+timestamp=[2025-04-09 09:33:41], mode=WORKBENCH_UI_INIT, duration=0:00:00.859, duration_ms=859, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,main_design_wrapper,projet_vitis,projet_vitis_system}
+timestamp=[2025-04-09 09:33:41], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.196, duration_ms=196, data={}
+timestamp=[2025-04-09 09:33:58], mode=BUILD, duration=0:00:01.252, duration_ms=1252, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 09:41:56], mode=BUILD, duration=0:00:03.394, duration_ms=3394, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 10:12:22], mode=BUILD, duration=0:00:04.482, duration_ms=4482, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 10:12:31], mode=BUILD, duration=0:00:00.523, duration_ms=523, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 10:13:22], mode=BUILD, duration=0:00:04.470, duration_ms=4470, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 10:15:35], mode=BUILD, duration=0:00:01.434, duration_ms=1434, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 10:18:27], mode=BUILD, duration=0:00:00.623, duration_ms=623, data={name=projet_vitis, configuration=Debug, clean_build=false}
+timestamp=[2025-04-09 10:18:55], mode=BUILD, duration=0:00:01.631, duration_ms=1631, data={name=projet_vitis, configuration=Debug, clean_build=false}

@@ -68,29 +68,36 @@ uint8_t accumulatedData[ECHO_BUFFER_SIZE] = {0};
 uint8_t accumulatedData2[ECHO_BUFFER_SIZE] = {0};
 int activeBuffer = 0; // Indique quel tampon est actif
 
-void accumulateValue(uint16_t value)
+void accumulateBinaryChunk(uint16_t *data)
 {
-    uint16_t *currentBuffer = activeBuffer ? accumulatedData2 : accumulatedData;
-    uint16_t *nextBuffer = activeBuffer ? accumulatedData : accumulatedData2;
+	uint16_t *currentBuffer = activeBuffer ? accumulatedData2 : accumulatedData;
+	uint16_t *nextBuffer = activeBuffer ? accumulatedData : accumulatedData2;
 
     size_t currentLength = 0;
 
-    // Recherche de la fin du tampon (0 considéré comme fin logique)
+    // Cherche la fin du tampon actif
     for (size_t i = 0; i < ECHO_BUFFER_SIZE; i++) {
         if (currentBuffer[i] == 0) break;
         currentLength++;
     }
 
-    if (currentLength + 1 < ECHO_BUFFER_SIZE) {
-        currentBuffer[currentLength] = value;
-    } else {
-        print("Tampon plein, basculement.\n\r");
-        memset(nextBuffer, 0, ECHO_BUFFER_SIZE); // en octets
-        nextBuffer[0] = value;
-        activeBuffer = !activeBuffer;
+    // Calcul et affichage de l'espace restant
+    size_t remaining = ECHO_BUFFER_SIZE - currentLength - 2; // -2 car on va ajouter 2 octets
+    //xil_printf("\n\rEspace restant dans le tampon actif : %d octets\n\r", remaining);
+
+    // On ajoute seulement val1 (2 octets)
+    if (currentLength + 2 < ECHO_BUFFER_SIZE)
+    {
+    	currentBuffer[currentLength] = value;
+    }
+    else
+    {
+    	print("Tampon plein, basculement.\n\r");
+    	memset(nextBuffer, 0, ECHO_BUFFER_SIZE); // en octets
+    	nextBuffer[0] = value;
+    	activeBuffer = !activeBuffer;
     }
 }
-
 
 
 
@@ -169,11 +176,10 @@ void udpEchoTask(void)
          // Extraction et ajout des 60 valeurs dans le buffer double
          uint16_t val[taille_buff_rec];
          for (int i = 0; i < taille_buff_rec; i++) {
-        	 val[i] = (uint8_t)context.buffer[2*i] << 8 | (uint8_t)context.buffer[2*i + 1];
-        	 if (i != 0) {
-        	     accumulateValue(val[i]);
-        	 }
-
+             val[i] = (uint8_t)context.buffer[2*i] << 8 | (uint8_t)context.buffer[2*i + 1];
+             if(i != 0){
+            	 accumulateBinaryChunk(&context.buffer[2*i]);
+             }
          }
 
          printBufferDebug(accumulatedData);
@@ -204,7 +210,7 @@ void udpEchoTask(void)
 
 
 
-void printBufferDebug(const uint16_t *buffer)
+void printBufferDebug(const uint8_t *buffer)
 {
     xil_printf("\n\n\r ADC : ");
     for (int i = 0; i < ECHO_BUFFER_SIZE; i++)
@@ -214,4 +220,3 @@ void printBufferDebug(const uint16_t *buffer)
     }
     xil_printf(" ");
 }
-
